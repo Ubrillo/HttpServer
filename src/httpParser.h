@@ -5,6 +5,9 @@
 #ifndef HTTPSERVER_HTTPPARSER_H
 #define HTTPSERVER_HTTPPARSER_H
 #include <iostream>
+#include <unordered_map>
+
+using namespace std;
 
 class HttpParser {
 private:
@@ -15,14 +18,14 @@ private:
     };
     unordered_map<string, string> metadata;
     unordered_map<string,string> headers;
-    char buffer;
+    string buffer;
 
 public:
-    HttpParser(char buffer[]);
+    HttpParser(string buffer);
+    unordered_map<string, string> getHeaders();
     unordered_map<string, string> getMetadata();
-    unordered_map<string, string> headers();
 
-    struct properties getProperties();
+    //struct properties getProperties();
     void parseRequest();
 
 };

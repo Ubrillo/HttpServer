@@ -5,13 +5,10 @@
 #include "httpParser.h"
 #include <sstream>
 
-HttpParser::HttpParser(char buffer[]) {
-    this->buffer = std::move(buffer);
+HttpParser::HttpParser(string buffer) {
+    this->buffer = buffer;
 }
 
-unordered_map<string,string> HttpParser::getMetadata() {
-    return metadata;
-}
 void HttpParser::parseRequest() {
 
     string request(this->buffer);
@@ -22,14 +19,17 @@ void HttpParser::parseRequest() {
     stringstream lineStream(line);
 
     string value;
-    this->metadata["method"] = lineStream >> value;
-    this->properties.method = value;
+    lineStream >> value;
+    this->metadata["method"] = value;
+    //this->headers["method"] = value;
 
-    this->metadata["path"] = lineStream >> value;
-    this->properties.value = value;
+    lineStream >> value;
+    this->metadata["path"] = value;
+    //this->properties.value = value;
 
-    this->metadata["version"] = lineStream >> value;
-    this->properties.version = value;
+    lineStream >> value;
+    this->metadata["version"] = value;
+    //this->properties.version = value;
 
     // cout << "method: " << method << endl;
     // cout << "path: " << path << endl;
@@ -59,14 +59,14 @@ void HttpParser::parseRequest() {
     }
 }
 
-unordered_map<string,string> HttpParser::headers() {
+unordered_map<string,string> HttpParser::getHeaders() {
     return this->headers;
 }
 
-unordered_map<string,string> HttpParser::metadata() {
+unordered_map<string,string> HttpParser::getMetadata() {
     return this->metadata;
 }
 
-properties getProperties() {
-    return this->properties;
-}
+// properties getProperties() {
+//     return this->properties;
+// }

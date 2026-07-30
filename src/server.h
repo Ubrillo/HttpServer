@@ -5,16 +5,28 @@
 #ifndef HTTPSERVER_SERVER_H
 #define HTTPSERVER_SERVER_H
 
+#include <sys/socket.h>
+#include <iostream>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include "router.h"
+using namespace std;
+
 class Server {
+
 private:
     int port;
-    int socketTerminal;
+    int socketTerminal{};
     void handleClient(int clientSocket);
-    sockaddr_in socketAddr;
+    struct sockaddr_in server_addr;
+    Router router{};
 
 public:
     Server(int port);
     void start();
+    void  echoPage(int clientSocket, string path);
 };
 
 #endif //HTTPSERVER_SERVER_H
