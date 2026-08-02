@@ -42,6 +42,7 @@ A lightweight HTTP server built from scratch in C++ using raw POSIX sockets, wit
     ├── index.html
     ├── about.html
     └── contact.html
+├── CMakeList.txt
 ```
 
 ## Building
