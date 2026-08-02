@@ -4,5 +4,4 @@
 int main() {
     Server server(1234);
     server.start();
-    cout << "hello";
 }
