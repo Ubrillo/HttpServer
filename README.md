@@ -50,7 +50,7 @@ A lightweight HTTP server built from scratch in C++ using raw POSIX sockets, wit
 Requires a C++17-compatible compiler.
 
 ```bash
-g++ -std=c++17 -pthread src/server.cpp -o server
+g++ -std=c++17 -pthread src/server.cpp -o main
 ```
 
 The `-pthread` flag is required on Linux for `std::thread` support.
@@ -58,7 +58,7 @@ The `-pthread` flag is required on Linux for `std::thread` support.
 ## Running
 
 ```bash
-./server
+./main
 ```
 
 By default the server listens on port `1234`. Visit `http://localhost:1234/` in a browser, or test with `curl`:
