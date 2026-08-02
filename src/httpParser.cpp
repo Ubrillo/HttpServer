@@ -31,10 +31,6 @@ void HttpParser::parseRequest() {
     this->metadata["version"] = value;
     //this->properties.version = value;
 
-    // cout << "method: " << method << endl;
-    // cout << "path: " << path << endl;
-    // cout << "version: " << version << endl;
-
 
     while (getline(requestStream, line)) {
         if (!line.empty() && line.back() == '\r') {
@@ -43,13 +39,11 @@ void HttpParser::parseRequest() {
         if (line.empty()) {
             break;
         }
-
         size_t colon = line.find(':');
 
         if (colon != string::npos) {
             string key = line.substr(0, colon);
             string value = line.substr(colon + 1);
-
 
             if (!value.empty()  && value[0] == ' '){
                 value.erase(0, 1);

@@ -5,13 +5,11 @@
 #ifndef HTTPSERVER_SERVER_H
 #define HTTPSERVER_SERVER_H
 
-#include <sys/socket.h>
+
 #include <iostream>
-#include <sys/socket.h>
 #include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
 #include "router.h"
+
 using namespace std;
 
 class Server {
