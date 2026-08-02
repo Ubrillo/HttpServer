@@ -37,7 +37,8 @@ A lightweight HTTP server built from scratch in C++ using raw POSIX sockets, wit
 │   ├── httpParser.cpp      # Raw request parsing
 │   ├── httpParser.h
 │   ├── router.cpp
-│   └── router.h           # Path-to-file routing
+│   ├── router.h           # Path-to-file routing
+│   └── main.cpp 
 └── public/
     ├── index.html
     ├── about.html
