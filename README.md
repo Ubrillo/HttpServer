@@ -90,4 +90,4 @@ Requests to any other path return a `404 Not Found`.
 - Low-level socket programming with POSIX APIs (`socket`, `bind`, `listen`, `accept`)
 - Manual HTTP protocol handling without a framework
 - Concurrent programming with `std::thread`
-- Debugging real-world issues around working directories, path resolution, and race conditions in a networked C++ application
+- Debugging real-world issues around working directories, path resolution, and race conditions in a networked C++ application.
